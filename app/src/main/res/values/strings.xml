@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">TestApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="connect_to_server">Se connecter au server</string>
+    <string name="main_choice">Choisir un mode</string>
+    <string name="title_activity_client">ClientActivity</string>
+
+
+</resources>
