@@ -9,8 +9,71 @@
     tools:context="com.excilys.testapp.android.ui.activity.ClientActivity">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="@string/label_client_menu"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        />
+
+
+    <LinearLayout
+        android:id="@+id/llIp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+    >
+
+        <TextView
+            android:text="IP: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llPort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        android:layout_below="@id/llIp"
+    >
+
+        <TextView
+            android:text="Port: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/connectToServer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/llPort"
+        android:layout_marginTop="50dp"
+        android:text="Se connecter"
+    />
 
 </RelativeLayout>

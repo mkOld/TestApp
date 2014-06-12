@@ -7,6 +7,7 @@
     <string name="connect_to_server">Se connecter au server</string>
     <string name="main_choice">Choisir un mode</string>
     <string name="title_activity_client">ClientActivity</string>
-
+    <string name="label_client_menu">Information sur le serveur:</string>
+    <string name="title_activity_client_connection">ClientConnectionActivity</string>
 
 </resources>

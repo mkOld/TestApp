@@ -36,8 +36,9 @@ apt {
 }
 
 dependencies {
+    compile 'com.android.support:appcompat-v7:+'
     apt "org.androidannotations:androidannotations:3.0+"          // add these
     compile "org.androidannotations:androidannotations-api:3.0+"  // two lines
-    compile 'com.android.support:appcompat-v7:+'
+    
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
