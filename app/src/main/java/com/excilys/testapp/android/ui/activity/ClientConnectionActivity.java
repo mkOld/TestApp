@@ -56,7 +56,7 @@ public class ClientConnectionActivity extends ActionBarActivity {
         if (matcher.find()) {
             ipAdress = s;
 
-            getInfoFromAdmin(s);
+            //getInfoFromAdmin(s);
         } else {
             Toast.makeText(getApplicationContext(), "This is not an IP adress...", Toast.LENGTH_LONG).show();
         }

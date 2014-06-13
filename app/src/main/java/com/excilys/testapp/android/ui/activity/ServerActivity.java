@@ -5,27 +5,27 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
 import com.excilys.testapp.app.R;
 
-import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 
-@EActivity(R.layout.activity_main)
-public class MainActivity extends ActionBarActivity {
+/**
+ * Created by excilys on 12/06/14.
+ */
+@EActivity(R.layout.activity_server)
+public class ServerActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_server);
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        
+
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.server, menu);
         return true;
     }
 
@@ -41,16 +41,9 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    @Click(R.id.serverMode)
-    void goServerMode() {
-        Intent intent = new Intent(getApplicationContext(), ServerActivity_.class);
-        startActivity(intent);
-        finish();
-    }
-
-    @Click(R.id.clientMode)
-    void goClientMode() {
-        Intent intent = new Intent(getApplicationContext(), ClientActivity_.class);
+    @Override
+    public void onBackPressed() {
+        Intent intent = new Intent(getApplicationContext(), MainActivity_.class);
         startActivity(intent);
         finish();
     }

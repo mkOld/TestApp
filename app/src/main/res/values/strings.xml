@@ -9,5 +9,6 @@
     <string name="title_activity_client">ClientActivity</string>
     <string name="label_client_menu">Information sur le serveur:</string>
     <string name="title_activity_client_connection">ClientConnectionActivity</string>
+    <string name="title_activity_server">ServerActivity</string>
 
 </resources>
