@@ -1,16 +1,18 @@
 package com.excilys.testapp.android.utils;
 
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.widget.Toast;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Created by hrandr on 13/06/14.
+ * Created by excilys on 13/06/14.
  */
-public class Location {
+public class Location implements Parcelable{
     private String iP;
-    private Integer port;
+    private String port;
 
     public String getiP() {
         return iP;
@@ -20,15 +22,15 @@ public class Location {
         this.iP = iP;
     }
 
-    public Integer getPort() {
+    public String getPort() {
         return port;
     }
 
-    public void setPort(Integer port) {
+    public void setPort(String port) {
         this.port = port;
     }
 
-    public Location(String iP, Integer port) {
+    public Location(String iP, String port) {
         this.iP = iP;
         this.port = port;
     }
@@ -62,4 +64,43 @@ public class Location {
         }
     }
 
+    public boolean validate(){
+        return (validateIP(iP))&&(validatePort(port));
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(iP);
+        parcel.writeString(port);
+    }
+
+    public static final Parcelable.Creator<Location> CREATOR = new Parcelable.Creator<Location>() {
+        @Override
+        public Location createFromParcel(Parcel source) {
+            return new Location(source);
+        }
+
+        @Override
+        public Location[] newArray(int size) {
+            return new Location[size];
+        }
+    };
+
+    public Location(Parcel in) {
+        iP = in.readString();
+        port = in.readString();
+    }
+
+    @Override
+    public String toString() {
+        return "Location{" +
+                "iP='" + iP + '\'' +
+                ", port='" + port + '\'' +
+                '}';
+    }
 }

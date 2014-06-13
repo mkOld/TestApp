@@ -12,15 +12,18 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
+import com.excilys.testapp.app.R.id;
 import com.excilys.testapp.app.R.layout;
 import org.androidannotations.api.SdkVersionHelper;
 import org.androidannotations.api.view.HasViews;
+import org.androidannotations.api.view.OnViewChangedListener;
 import org.androidannotations.api.view.OnViewChangedNotifier;
 
 public final class ClientActivity_
     extends ClientActivity
-    implements HasViews
+    implements HasViews, OnViewChangedListener
 {
 
     private final OnViewChangedNotifier onViewChangedNotifier_ = new OnViewChangedNotifier();
@@ -35,6 +38,7 @@ public final class ClientActivity_
     }
 
     private void init_(Bundle savedInstanceState) {
+        OnViewChangedNotifier.registerOnViewChangedListener(this);
     }
 
     @Override
@@ -69,6 +73,25 @@ public final class ClientActivity_
             onBackPressed();
         }
         return super.onKeyDown(keyCode, event);
+    }
+
+    @Override
+    public void onViewChanged(HasViews hasViews) {
+        {
+            View view = hasViews.findViewById(id.connectToServer);
+            if (view!= null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                    @Override
+                    public void onClick(View view) {
+                        ClientActivity_.this.goToConnect();
+                    }
+
+                }
+                );
+            }
+        }
     }
 
     public static class IntentBuilder_ {

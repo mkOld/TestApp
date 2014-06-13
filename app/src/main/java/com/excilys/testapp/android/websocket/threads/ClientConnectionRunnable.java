@@ -11,7 +11,7 @@ import org.java_websocket.WebSocketImpl;
 import java.net.URISyntaxException;
 
 /**
- * Created by hrandr on 13/06/14.
+ * Created by excilys on 13/06/14.
  */
 public class ClientConnectionRunnable implements Runnable {
     private static final String TAG = Client.class.getSimpleName();
@@ -41,7 +41,11 @@ public class ClientConnectionRunnable implements Runnable {
         endOfClient = true;
         try {
             WebSocketImpl.DEBUG = true;
-            client = new Client(this.location, context);
+            // the client to connect with webSocket to server
+            client = new Client(location, context);
+
+//            client.setLocation(location);
+//            client.setContext(context);
         } catch (URISyntaxException e) {
             Log.e(TAG, "Error, catched URISyntaxException in default constructor ClientConnectionRunnable");
             e.printStackTrace();
@@ -51,6 +55,14 @@ public class ClientConnectionRunnable implements Runnable {
 
     @Override
     public void run() {
+        Log.i(TAG, "Enterring implemented run method in ClientConnectionRunnable");
+        client.getWebSocketClient().connect();
+        Log.i(TAG, "Connection to server : " + client.getWebSocketClient().getConnection());
+        Log.i(TAG, "Enterring infinite loop implemented run method in ClientConnectionRunnable, listening...");
 
+        while (endOfClient) {
+        }
+
+        client.getWebSocketClient().close();
     }
 }

@@ -9,9 +9,38 @@
     tools:context="com.excilys.testapp.android.ui.activity.ClientConnectionActivity">
 
     <TextView
-        android:text="@string/hello_world"
+        android:text="Information de connection:"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"/>
+
+    <LinearLayout
+        android:id="@+id/llInfoConnection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:orientation="vertical"
+    >
+
+        <ProgressBar
+            android:id="@+id/progressBarWaitingConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/infoConnection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+    </LinearLayout>
+
+    <Button
+        android:layout_below="@+id/llInfoConnection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Stop"
+    />
 
 </RelativeLayout>
 <!-- From: file:/home/hrandr/android/workspace/TestApp/app/src/main/res/layout/activity_client_connection.xml -->
